@@ -355,11 +355,9 @@ Build > Build Bundle(s) / APK(s) > Build APK(s)
 
 ## Video de funcionamiento
 
-Agregar aquí el enlace al video de demostración:
 
-```text
-https://github.com/user-attachments/
-```
+https://github.com/user-attachments/assets/1852aa87-a812-4034-a8eb-7b33f7fae3aa
+
 
 ---
 
