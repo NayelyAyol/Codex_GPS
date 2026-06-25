@@ -1,17 +1,123 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
+  <ion-toolbar class="gps-toolbar">
+    <ion-title>GPS Vivo</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" class="gps-page">
   <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
+    <ion-toolbar class="gps-toolbar">
+      <ion-title size="large">GPS Vivo</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <main class="gps-shell">
+    <section class="hero-panel">
+      <div class="hero-copy">
+        <ion-badge class="status-badge" [class.status-ok]="status === 'ready'" [class.status-warn]="status === 'denied' || status === 'error'">
+          <ion-icon [name]="status === 'ready' ? 'checkmark-circle-outline' : status === 'checking' ? 'refresh-outline' : 'shield-checkmark-outline'"></ion-icon>
+          {{ message }}
+        </ion-badge>
+
+        <h1>Tu punto exacto, claro y al instante.</h1>
+        <p>Lectura GPS con permisos verificados, precision visible y coordenadas listas para compartir.</p>
+
+        <div class="hero-actions">
+          <ion-button class="primary-action" size="large" (click)="locateMe()" [disabled]="status === 'checking'">
+            @if (status === 'checking') {
+              <ion-spinner name="crescent"></ion-spinner>
+            } @else {
+              <ion-icon name="locate-outline" slot="start"></ion-icon>
+            }
+            {{ status === 'checking' ? 'Ubicando' : hasPosition ? 'Actualizar' : 'Obtener GPS' }}
+          </ion-button>
+
+          <ion-button fill="clear" class="ghost-action" (click)="openInMaps()" [disabled]="!hasPosition">
+            <ion-icon name="open-outline" slot="start"></ion-icon>
+            Mapa
+          </ion-button>
+        </div>
+      </div>
+
+      <div class="locator-visual" aria-hidden="true">
+        <div class="radar-ring ring-one"></div>
+        <div class="radar-ring ring-two"></div>
+        <div class="locator-pin">
+          <ion-icon name="navigate-circle-outline"></ion-icon>
+        </div>
+        <span class="route-dot dot-a"></span>
+        <span class="route-dot dot-b"></span>
+        <span class="route-dot dot-c"></span>
+      </div>
+    </section>
+
+    @if (lastError) {
+      <section class="alert-panel" [class.denied]="status === 'denied'">
+        <ion-icon name="alert-circle-outline"></ion-icon>
+        <span>{{ lastError }}</span>
+      </section>
+    }
+
+    <section class="data-grid">
+      <article class="coordinate-panel main-coordinate">
+        <div class="panel-heading">
+          <ion-icon name="map-outline"></ion-icon>
+          <span>Coordenadas</span>
+        </div>
+
+        @if (position) {
+          <strong>{{ coordinatesText }}</strong>
+          <button type="button" class="copy-button" (click)="copyCoordinates()" aria-label="Copiar coordenadas">
+            <ion-icon name="copy-outline"></ion-icon>
+          </button>
+        } @else {
+          <strong class="empty-value">--.------, --.------</strong>
+        }
+      </article>
+
+      <article class="metric-panel">
+        <div class="metric-icon coral">
+          <ion-icon name="speedometer-outline"></ion-icon>
+        </div>
+        <span>Precisión</span>
+        <strong>{{ position ? (position.coords.accuracy | number: '1.0-0') + ' m' : '-- m' }}</strong>
+      </article>
+
+      <!--
+      <article class="metric-panel">
+        <div class="metric-icon sky">
+          <ion-icon name="compass-outline"></ion-icon>
+        </div>
+        <span>Altitud</span>
+        <strong>{{ position?.coords?.altitude !== null && position?.coords?.altitude !== undefined ? (position?.coords?.altitude | number: '1.0-0') + ' m' : '-- m' }}</strong>
+      </article>-->
+
+      <article class="metric-panel">
+        <div class="metric-icon mint">
+          <ion-icon name="time-outline"></ion-icon>
+        </div>
+        <span>Última lectura</span>
+        <strong>{{ position ? (position.timestamp | date: 'HH:mm:ss') : '--:--:--' }}</strong>
+      </article>
+
+    <article class="metric-panel">
+        <div class="metric-icon sky">
+          <ion-icon name="compass-outline"></ion-icon>
+        </div>
+        <span>Permiso preciso</span>
+        <strong>{{ translatePermission(permissionState) }}</strong>
+      </article>
+    </section>
+      <!--
+    <section class="permission-panel">
+      <div>
+        <span>Permiso preciso</span>
+        <strong>{{ permissionState }}</strong>
+      </div>
+      <div>
+        <span>Permiso aproximado</span>
+        <strong>{{ coarsePermissionState }}</strong>
+      </div>
+    </section>-->
+  </main>
 </ion-content>

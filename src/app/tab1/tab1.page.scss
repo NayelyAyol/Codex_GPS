@@ -1,0 +1,379 @@
+:host {
+  --coral: #f59a8d;
+  --coral-strong: #e97268;
+  --sky: #9bd6ee;
+  --mint: #b9dccb;
+  --cream: #fff6e9;
+  --lavender: #b8a6d9;
+  --ink: #27303d;
+  --muted: #6f7783;
+}
+
+.gps-toolbar {
+  --background: rgba(255, 246, 233, 0.78);
+  --border-color: rgba(245, 154, 141, 0.22);
+  --color: var(--ink);
+  backdrop-filter: blur(18px);
+}
+
+.gps-page {
+  --background: linear-gradient(150deg, #fff7ed 0%, #f5fbff 42%, #f7f2ff 100%);
+  color: var(--ink);
+}
+
+.gps-shell {
+  display: grid;
+  gap: 18px;
+  padding: 20px;
+  padding-bottom: 34px;
+}
+
+.hero-panel {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(180px, 34%);
+  align-items: center;
+  min-height: 360px;
+  overflow: hidden;
+  padding: clamp(22px, 5vw, 44px);
+  border: 1px solid rgba(245, 154, 141, 0.26);
+  border-radius: 28px;
+  background:
+    linear-gradient(132deg, rgba(255, 246, 233, 0.94), rgba(245, 251, 255, 0.9)),
+    radial-gradient(circle at 72% 20%, rgba(155, 214, 238, 0.48), transparent 32%),
+    radial-gradient(circle at 88% 88%, rgba(184, 166, 217, 0.38), transparent 28%);
+  box-shadow: 0 24px 60px rgba(109, 81, 74, 0.13);
+}
+
+.hero-copy {
+  max-width: 620px;
+  z-index: 1;
+}
+
+.status-badge {
+  --background: rgba(155, 214, 238, 0.28);
+  --color: #446172;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  width: fit-content;
+  padding: 8px 12px;
+  border: 1px solid rgba(155, 214, 238, 0.5);
+  border-radius: 999px;
+  text-transform: none;
+}
+
+.status-badge ion-icon {
+  font-size: 16px;
+}
+
+.status-badge.status-ok {
+  --background: rgba(185, 220, 203, 0.34);
+  --color: #3c7059;
+  border-color: rgba(111, 168, 139, 0.36);
+}
+
+.status-badge.status-warn {
+  --background: rgba(245, 154, 141, 0.18);
+  --color: #ad564f;
+  border-color: rgba(245, 154, 141, 0.38);
+}
+
+h1 {
+  max-width: 12ch;
+  margin: 18px 0 12px;
+  font-size: clamp(42px, 8vw, 78px);
+  line-height: 0.95;
+  letter-spacing: 0;
+}
+
+p {
+  max-width: 54ch;
+  margin: 0;
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.55;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.primary-action {
+  --background: linear-gradient(135deg, var(--coral), var(--coral-strong));
+  --background-activated: var(--coral-strong);
+  --border-radius: 18px;
+  --box-shadow: 0 14px 30px rgba(233, 114, 104, 0.25);
+  min-width: 164px;
+  height: 54px;
+  font-weight: 700;
+}
+
+.ghost-action {
+  --color: #537389;
+  --border-radius: 18px;
+  height: 54px;
+  font-weight: 700;
+}
+
+.locator-visual {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: min(280px, 100%);
+  aspect-ratio: 1;
+  justify-self: end;
+}
+
+.radar-ring {
+  position: absolute;
+  inset: 14%;
+  border: 1px solid rgba(88, 137, 159, 0.24);
+  border-radius: 50%;
+}
+
+.ring-one {
+  inset: 4%;
+  background: rgba(155, 214, 238, 0.12);
+}
+
+.ring-two {
+  inset: 25%;
+  border-color: rgba(245, 154, 141, 0.34);
+  background: rgba(255, 246, 233, 0.44);
+}
+
+.locator-pin {
+  display: grid;
+  place-items: center;
+  width: 96px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #ffffff, #ffe8df);
+  box-shadow: 0 18px 45px rgba(109, 81, 74, 0.16);
+}
+
+.locator-pin ion-icon {
+  color: var(--coral-strong);
+  font-size: 58px;
+}
+
+.route-dot {
+  position: absolute;
+  width: 12px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--mint);
+  box-shadow: 0 0 0 8px rgba(185, 220, 203, 0.2);
+}
+
+.dot-a {
+  top: 18%;
+  right: 26%;
+}
+
+.dot-b {
+  bottom: 22%;
+  left: 16%;
+  background: var(--lavender);
+  box-shadow: 0 0 0 8px rgba(184, 166, 217, 0.18);
+}
+
+.dot-c {
+  right: 12%;
+  bottom: 28%;
+  background: var(--sky);
+  box-shadow: 0 0 0 8px rgba(155, 214, 238, 0.2);
+}
+
+.alert-panel,
+.permission-panel,
+.coordinate-panel,
+.metric-panel {
+  border: 1px solid rgba(108, 124, 139, 0.12);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow: 0 16px 42px rgba(109, 81, 74, 0.08);
+  backdrop-filter: blur(16px);
+}
+
+.alert-panel {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 18px;
+  color: #9a4d48;
+  background: rgba(255, 236, 230, 0.76);
+}
+
+.alert-panel ion-icon {
+  flex: 0 0 auto;
+  font-size: 22px;
+}
+
+.data-grid {
+  display: grid;
+  grid-template-columns: 1.35fr repeat(3, minmax(150px, 1fr));
+  gap: 14px;
+}
+
+.coordinate-panel,
+.metric-panel {
+  min-height: 150px;
+  padding: 18px;
+}
+
+.main-coordinate {
+  display: grid;
+  align-content: space-between;
+  gap: 20px;
+}
+
+.panel-heading {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.panel-heading ion-icon {
+  color: var(--coral-strong);
+  font-size: 21px;
+}
+
+.coordinate-panel strong {
+  overflow-wrap: anywhere;
+  color: var(--ink);
+  font-size: clamp(24px, 4vw, 38px);
+  line-height: 1.05;
+}
+
+.empty-value {
+  color: rgba(39, 48, 61, 0.34) !important;
+}
+
+.copy-button {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  aspect-ratio: 1;
+  border: 0;
+  border-radius: 15px;
+  color: #5b6f79;
+  background: rgba(155, 214, 238, 0.22);
+}
+
+.copy-button ion-icon {
+  font-size: 21px;
+}
+
+.metric-panel {
+  display: grid;
+  gap: 10px;
+  align-content: space-between;
+}
+
+.metric-panel span,
+.permission-panel span {
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.metric-panel strong {
+  color: var(--ink);
+  font-size: clamp(24px, 3vw, 34px);
+  line-height: 1;
+}
+
+.metric-icon {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  aspect-ratio: 1;
+  border-radius: 16px;
+}
+
+.metric-icon ion-icon {
+  font-size: 24px;
+}
+
+.metric-icon.coral {
+  color: #bf5d55;
+  background: rgba(245, 154, 141, 0.2);
+}
+
+.metric-icon.sky {
+  color: #4d8298;
+  background: rgba(155, 214, 238, 0.26);
+}
+
+.metric-icon.mint {
+  color: #4a8066;
+  background: rgba(185, 220, 203, 0.3);
+}
+
+.permission-panel {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  overflow: hidden;
+}
+
+.permission-panel div {
+  display: grid;
+  gap: 6px;
+  padding: 18px;
+  background: rgba(255, 255, 255, 0.44);
+}
+
+.permission-panel strong {
+  color: #4f6474;
+  font-size: 18px;
+  text-transform: capitalize;
+}
+
+@media (max-width: 900px) {
+  .hero-panel,
+  .data-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .locator-visual {
+    justify-self: center;
+    width: min(220px, 68vw);
+  }
+
+  h1 {
+    max-width: 11ch;
+  }
+}
+
+@media (max-width: 520px) {
+  .gps-shell {
+    padding: 14px;
+    padding-bottom: 28px;
+  }
+
+  .hero-panel {
+    min-height: auto;
+    padding: 22px;
+    border-radius: 22px;
+  }
+
+  h1 {
+    font-size: 42px;
+  }
+
+  .hero-actions ion-button {
+    width: 100%;
+  }
+
+  .permission-panel {
+    grid-template-columns: 1fr;
+  }
+}

@@ -35,3 +35,14 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import '@ionic/angular/css/palettes/dark.system.css';
+
+html,
+body {
+  background: #fff7ed;
+}
+
+ion-tab-bar {
+  --background: rgba(255, 250, 243, 0.92);
+  --border: 1px solid rgba(245, 154, 141, 0.18);
+  backdrop-filter: blur(18px);
+}
