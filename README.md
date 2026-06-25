@@ -444,6 +444,11 @@ https://github.com/user-attachments/assets/1852aa87-a812-4034-a8eb-7b33f7fae3aa
 
 ---
 
+## Descarga la APK
+
+- https://drive.google.com/drive/folders/10nvnYFlkPQAATrU57Jp-fbqdu3DVn7B4?usp=sharing
+
+---
 ## Resultados
 
 - Se obtuvo correctamente la ubicación GPS del dispositivo.
