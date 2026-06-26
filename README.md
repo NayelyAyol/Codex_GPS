@@ -1,4 +1,4 @@
-# <h1 align="center"> 📍 GPS Vivo - Geolocalización en Tiempo Real con Ionic 🛰️ </h1>
+# <h1 align="center"> 📍 GPS Vivo - Geolocalización en Tiempo Real con Ionic / Codex 🛰️ </h1>
 
 ## Descripción
 
@@ -440,7 +440,7 @@ Build > Build Bundle(s) / APK(s) > Build APK(s)
 
 ## Video de funcionamiento
 
-https://github.com/user-attachments/assets/1852aa87-a812-4034-a8eb-7b33f7fae3aa
+- https://vt.tiktok.com/ZSCjEoaEx/
 
 ---
 
